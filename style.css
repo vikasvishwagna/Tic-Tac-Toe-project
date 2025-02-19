@@ -1,0 +1,22 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  text-align: center;
+}
+
+#container{
+  height: 70vh;
+  background-color: antiquewhite;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#cube{
+  height: 60vmin;
+  width: 60vmin;
+  background-color: aquamarine;
+}
