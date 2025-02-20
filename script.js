@@ -83,6 +83,7 @@ let enableAllButtons = ()=>{
 }
 let resetFunction = ()=>{
   turnO = true;
+  count = 0;
   enableAllButtons();
   msgContainer.classList.add("hide");
 }
