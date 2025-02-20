@@ -21,7 +21,7 @@ A simple **Tic-Tac-Toe** game built using **HTML, CSS, and JavaScript**. Play wi
 - **CSS**  
 - **JavaScript**  
 
----
+
 
 
 
