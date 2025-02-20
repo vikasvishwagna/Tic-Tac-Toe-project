@@ -1,6 +1,12 @@
 let boxes = document.querySelectorAll('.box');
 let msgContainer = document.querySelector('.msg-container');
 let msg = document.querySelector('#msg');
+let reset = document.querySelector('.reset-btn');
+let newGame = document.querySelector('#new-btn');
+
+let turnO = true;
+let count = 0;
+
 let winPattern = [
   [0, 1, 2],
   [0, 3, 6],
@@ -12,7 +18,7 @@ let winPattern = [
   [6, 7, 8],
 ];
 
-let turnO = true;
+
 boxes.forEach((box) => {
   box.addEventListener('click',function(){
     if(turnO){
@@ -23,8 +29,13 @@ boxes.forEach((box) => {
       turnO = true;
     }
     box.disabled = true;
-    checkWinner();
-  })
+    count++
+    let isWinner = checkWinner();
+
+    if(count===9 && !isWinner){
+      gameDraw();
+    }
+  });
 });
 
 //chek winner
@@ -43,8 +54,15 @@ let checkWinner = () => {
   }
 }
 
+const gameDraw = ()=>{
+  msg.innerText = "Game Draw";
+  msgContainer.classList.remove("hide");
+  disableAllButtons();
+
+}
+
 let showWinner = (winner)=>{
-  msg.innerText = `Congrats, winner is ${winner}`;
+  msg.innerText = `Congrats!, winner is ${winner}`;
   msgContainer.classList.remove("hide");
   disableAllButtons();
 
@@ -55,3 +73,19 @@ let disableAllButtons = ()=>{
   box.disabled = true;
  }
 }
+
+let enableAllButtons = ()=>{
+  for(let box of boxes){
+    box.disabled = false;
+    box.innerHTML = "";
+    
+  }
+}
+let resetFunction = ()=>{
+  turnO = true;
+  enableAllButtons();
+  msgContainer.classList.add("hide");
+}
+reset.addEventListener('click', resetFunction);
+newGame.addEventListener('click', resetFunction);
+
