@@ -62,7 +62,7 @@ const gameDraw = ()=>{
 }
 
 let showWinner = (winner)=>{
-  msg.innerText = `Congrats!, winner is ${winner}`;
+  msg.innerText = `Congrats..! winner is ${winner}`;
   msgContainer.classList.remove("hide");
   disableAllButtons();
 
